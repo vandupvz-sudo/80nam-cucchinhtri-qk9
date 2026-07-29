@@ -18,11 +18,16 @@ body {
     );
     margin-inline: auto;
 }
+/* ===========================
+   UTM IMPACT
+=========================== */
+
 @font-face {
     font-family: "UTM Impact";
-    src: url("../assets/fonts/UTM-Impact.ttf") format("truetype");
+    src: url("../assets/fonts/UTM%20Impact.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 
