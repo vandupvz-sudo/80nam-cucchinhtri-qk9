@@ -1739,7 +1739,7 @@ body {
 .gallery-section {
     position: relative;
     overflow: hidden;
-    padding-block: 120px 140px;
+    padding: 80px 45px;
     background:
         radial-gradient(
             circle at 10% 10%,
@@ -4222,15 +4222,569 @@ html {
     text-size-adjust: 100%;
 }
 @media (max-width: 600px) {
-
-    .about-section__title{
-        font-size:26px;
-        line-height:1.15;
-        letter-spacing:-0.5px;
+    .history-slides {
+        min-height: 700px;
     }
 
-    .about-section__subtitle{
-        font-size:20px;
+    .history-slide {
+        min-height: 700px;
+    }
+}
+/* =========================================================
+   NHÓM TÁC GIẢ
+========================================================= */
+
+.authors-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 40px 0 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,192,0,.14),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #fff8f2 0%,
+            #fff0e4 100%
+        );
+}
+
+.authors-section__heading {
+    margin-bottom: 54px;
+    text-align: center;
+}
+
+.authors-section__eyebrow {
+    margin: 0 0 8px;
+
+    color: var(--color-red);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.authors-section__title {
+    margin: 0;
+
+    color: #ffb400;
+    font-family: "UTM Impact", sans-serif;
+    font-size: clamp(44px, 5vw, 74px);
+    line-height: 1;
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 1px #ffffff;
+
+    text-shadow:
+        0 3px 0 #c16f00,
+        0 7px 15px rgba(91, 23, 0, 0.18);
+}
+
+.authors-section__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+    margin-top: 20px;
+
+    color: var(--color-gold);
+    font-size: 15px;
+    letter-spacing: 0.2em;
+}
+
+.authors-section__divider span {
+    width: 90px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--color-gold)
+        );
+}
+
+.authors-section__divider span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            var(--color-gold),
+            transparent
+        );
+}
+
+/* Carousel */
+
+.authors-carousel {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.authors-carousel__stage {
+    position: relative;
+
+    width: 100%;
+    height: 650px;
+
+    perspective: 1600px;
+}
+
+/* Thẻ tác giả */
+
+.author-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 370px;
+    min-height: 580px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d20b0e 0%,
+            #a40003 100%
+        );
+
+    border: 3px solid var(--color-gold);
+    border-radius: 32px;
+
+    box-shadow:
+        0 28px 55px rgba(69, 0, 0, 0.28);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.55);
+
+    transition:
+        transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 700ms ease,
+        filter 700ms ease,
+        visibility 700ms ease;
+
+    pointer-events: none;
+}
+
+/* Người ở giữa */
+
+.author-card.is-center {
+    z-index: 5;
+
+    opacity: 1;
+    visibility: visible;
+
+    filter: none;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+/* Hai người gần giữa */
+
+.author-card.is-left {
+    z-index: 3;
+
+    opacity: 0.62;
+    visibility: visible;
+
+    filter:
+        blur(0.7px)
+        saturate(0.75);
+
+    transform:
+        translate(calc(-50% - 370px), -50%)
+        scale(0.78)
+        rotateY(14deg);
+}
+
+.author-card.is-right {
+    z-index: 3;
+
+    opacity: 0.62;
+    visibility: visible;
+
+    filter:
+        blur(0.7px)
+        saturate(0.75);
+
+    transform:
+        translate(calc(-50% + 370px), -50%)
+        scale(0.78)
+        rotateY(-14deg);
+}
+
+/* Hai người ngoài cùng */
+
+.author-card.is-far-left {
+    z-index: 1;
+
+    opacity: 0.25;
+    visibility: visible;
+
+    filter:
+        blur(1.5px)
+        saturate(0.55);
+
+    transform:
+        translate(calc(-50% - 650px), -50%)
+        scale(0.58)
+        rotateY(20deg);
+}
+
+.author-card.is-far-right {
+    z-index: 1;
+
+    opacity: 0.25;
+    visibility: visible;
+
+    filter:
+        blur(1.5px)
+        saturate(0.55);
+
+    transform:
+        translate(calc(-50% + 650px), -50%)
+        scale(0.58)
+        rotateY(-20deg);
+}
+
+/* Khung chân dung */
+
+.author-card__portrait {
+    position: relative;
+
+    width: calc(100% - 34px);
+    aspect-ratio: 1 / 1;
+
+    margin: 16px auto 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd66a 0%,
+            #c90a0d 75%
+        );
+
+    border: 5px solid var(--color-gold);
+    border-radius: 50%;
+}
+
+.author-card__portrait::before {
+    position: absolute;
+    z-index: 2;
+    inset: 10px;
+
+    content: "";
+
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.author-card__portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 20%;
+
+    border-radius: 50%;
+
+    transition: transform 900ms ease;
+}
+
+.author-card.is-center .author-card__portrait img {
+    transform: scale(1.035);
+}
+
+/* Nội dung */
+
+.author-card__content {
+    position: relative;
+
+    padding: 32px 24px 38px;
+
+    color: #ffffff;
+    text-align: center;
+}
+
+.author-card__content::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 70%;
+    height: 2px;
+
+    content: "";
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--color-gold),
+            transparent
+        );
+
+    transform: translateX(-50%);
+}
+
+.author-card__name {
+    margin: 0 0 17px;
+
+    color: #ffe6a3;
+    font-family: "UTM Impact", sans-serif;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1.15;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 3px 0 rgba(95, 0, 0, 0.55);
+}
+
+.author-card__position {
+    margin: 0 0 6px;
+
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.author-card__unit {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Nút chuyển */
+
+.authors-carousel__button {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+
+    display: grid;
+    place-items: center;
+
+    width: 54px;
+    height: 54px;
+
+    padding: 0;
+
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            180deg,
+            #df1115,
+            #a80003
+        );
+
+    border: 3px solid var(--color-gold);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 20px rgba(78, 0, 0, 0.2);
+
+    transform: translateY(-50%);
+
+    transition:
+        transform 220ms ease,
+        filter 220ms ease;
+}
+
+.authors-carousel__button:hover {
+    filter: brightness(1.12);
+}
+
+.authors-carousel__button--prev {
+    left: 10px;
+}
+
+.authors-carousel__button--next {
+    right: 10px;
+}
+
+/* Chấm điều hướng */
+
+.authors-dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.authors-dot {
+    width: 10px;
+    height: 10px;
+
+    padding: 0;
+
+    background: rgba(202, 11, 13, 0.25);
+    border: none;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        width 300ms ease,
+        background 300ms ease;
+}
+
+.authors-dot.is-active {
+    width: 32px;
+    background: var(--color-red);
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+    .authors-carousel__stage {
+        height: 590px;
     }
 
+    .author-card {
+        width: 330px;
+        min-height: 530px;
+    }
+
+    .author-card.is-left {
+        transform:
+            translate(calc(-50% - 285px), -50%)
+            scale(0.74);
+    }
+
+    .author-card.is-right {
+        transform:
+            translate(calc(-50% + 285px), -50%)
+            scale(0.74);
+    }
+
+    .author-card.is-far-left {
+        transform:
+            translate(calc(-50% - 470px), -50%)
+            scale(0.5);
+    }
+
+    .author-card.is-far-right {
+        transform:
+            translate(calc(-50% + 470px), -50%)
+            scale(0.5);
+    }
+}
+
+/* Điện thoại */
+
+@media (max-width: 600px) {
+    .authors-section {
+        padding: 78px 0 90px;
+    }
+
+    .authors-section__heading {
+        margin-bottom: 35px;
+    }
+
+    .authors-section__title {
+        font-size: 43px;
+    }
+
+    .authors-carousel__stage {
+        height: 520px;
+    }
+
+    .author-card {
+        width: 270px;
+        min-height: 470px;
+        border-radius: 24px;
+    }
+
+    .author-card.is-center {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    .author-card.is-left {
+        opacity: 0.28;
+
+        transform:
+            translate(calc(-50% - 165px), -50%)
+            scale(0.63);
+    }
+
+    .author-card.is-right {
+        opacity: 0.28;
+
+        transform:
+            translate(calc(-50% + 165px), -50%)
+            scale(0.63);
+    }
+
+    .author-card.is-far-left,
+    .author-card.is-far-right {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .author-card__content {
+        padding: 25px 18px 30px;
+    }
+
+    .author-card__name {
+        font-size: 24px;
+    }
+
+    .author-card__position {
+        font-size: 17px;
+    }
+
+    .author-card__unit {
+        font-size: 14px;
+    }
+
+    .authors-carousel__button {
+        width: 44px;
+        height: 44px;
+        font-size: 19px;
+    }
+
+    .authors-carousel__button--prev {
+        left: 4px;
+    }
+
+    .authors-carousel__button--next {
+        right: 4px;
+    }
 }

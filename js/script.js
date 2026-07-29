@@ -556,4 +556,139 @@ achievementNumbers.forEach((numberElement) => {
 
     numberObserver.observe(numberElement);
 });
+/* =========================================================
+   CAROUSEL NHÓM TÁC GIẢ
+========================================================= */
+
+const authorCards = Array.from(
+    document.querySelectorAll(".author-card")
+);
+
+const authorsPrevButton =
+    document.getElementById("authors-prev");
+
+const authorsNextButton =
+    document.getElementById("authors-next");
+
+const authorDots = Array.from(
+    document.querySelectorAll(".authors-dot")
+);
+
+if (authorCards.length > 0) {
+    let currentAuthorIndex = 0;
+    let authorsTimer = null;
+
+    const AUTHORS_DURATION = 4500;
+
+    const getRelativePosition = (index) => {
+        const total = authorCards.length;
+
+        let position =
+            (index - currentAuthorIndex + total) % total;
+
+        if (position > total / 2) {
+            position -= total;
+        }
+
+        return position;
+    };
+
+    const updateAuthorsCarousel = () => {
+        authorCards.forEach((card, index) => {
+            card.classList.remove(
+                "is-center",
+                "is-left",
+                "is-right",
+                "is-far-left",
+                "is-far-right"
+            );
+
+            const position = getRelativePosition(index);
+
+            if (position === 0) {
+                card.classList.add("is-center");
+            } else if (position === -1) {
+                card.classList.add("is-left");
+            } else if (position === 1) {
+                card.classList.add("is-right");
+            } else if (position === -2) {
+                card.classList.add("is-far-left");
+            } else if (position === 2) {
+                card.classList.add("is-far-right");
+            }
+        });
+
+        authorDots.forEach((dot, index) => {
+            dot.classList.toggle(
+                "is-active",
+                index === currentAuthorIndex
+            );
+        });
+    };
+
+    const showNextAuthor = () => {
+        currentAuthorIndex =
+            (currentAuthorIndex + 1) %
+            authorCards.length;
+
+        updateAuthorsCarousel();
+    };
+
+    const showPreviousAuthor = () => {
+        currentAuthorIndex =
+            (
+                currentAuthorIndex -
+                1 +
+                authorCards.length
+            ) % authorCards.length;
+
+        updateAuthorsCarousel();
+    };
+
+    const startAuthorsAutoPlay = () => {
+        if (authorsTimer !== null) {
+            window.clearInterval(authorsTimer);
+        }
+
+        authorsTimer = window.setInterval(
+            showNextAuthor,
+            AUTHORS_DURATION
+        );
+    };
+
+    const restartAuthorsAutoPlay = () => {
+        startAuthorsAutoPlay();
+    };
+
+    if (authorsPrevButton) {
+        authorsPrevButton.addEventListener(
+            "click",
+            () => {
+                showPreviousAuthor();
+                restartAuthorsAutoPlay();
+            }
+        );
+    }
+
+    if (authorsNextButton) {
+        authorsNextButton.addEventListener(
+            "click",
+            () => {
+                showNextAuthor();
+                restartAuthorsAutoPlay();
+            }
+        );
+    }
+
+    authorDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            currentAuthorIndex = index;
+            updateAuthorsCarousel();
+            restartAuthorsAutoPlay();
+        });
+    });
+
+    updateAuthorsCarousel();
+    startAuthorsAutoPlay();
+}
     });
