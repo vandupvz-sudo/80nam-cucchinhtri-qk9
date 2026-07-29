@@ -2100,15 +2100,19 @@ body.lightbox-open {
 .site-nav {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 2px;
 }
 
 .site-nav__link {
     position: relative;
-    padding: 11px 15px;
+    padding: 11px 11px;
     color: rgba(255, 255, 255, 0.82);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
     border-radius: 10px;
     transition:
         color var(--transition),
