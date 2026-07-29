@@ -2498,7 +2498,7 @@ section {
     text-transform:uppercase;
 
     color:#ffb400;
-    -webkit-text-stroke:0.3px #ffffff;
+    -webkit-text-stroke:1px #ffffff;
     text-shadow:
     0 2px 0 #d17d00,
     0 5px 0 #b56800,
@@ -2532,7 +2532,7 @@ section {
     text-transform:uppercase;
 
     color:#ffb400;
-    -webkit-text-stroke:0.3px #ffffff;
+    -webkit-text-stroke:1px #ffffff;
     text-shadow:
     0 2px 0 #d17d00,
     0 5px 0 #b56800,
@@ -2840,7 +2840,7 @@ BAN CHỦ NHIỆM
 
     text-transform:uppercase;
 
-    -webkit-text-stroke:0.1px #fff;
+    -webkit-text-stroke:1px #fff;
 
     text-shadow:
         0 3px 0 #d07b00,
@@ -3128,7 +3128,7 @@ BAN CHỦ NHIỆM
 
     text-transform:uppercase;
 
-    -webkit-text-stroke:0.05px #fff;
+    -webkit-text-stroke:1px #fff;
 
     text-shadow:
         0 3px 0 #d17d00,
@@ -3745,7 +3745,7 @@ BAN CHỦ NHIỆM
     font-weight: 700;
     line-height: 1.1;
     text-transform: uppercase;
-    -webkit-text-stroke: 0.1px #ffffff;
+    -webkit-text-stroke: 1px #ffffff;
     text-shadow:
         0 3px 0 #b96e00,
         0 8px 18px rgba(79, 23, 0, 0.18);
