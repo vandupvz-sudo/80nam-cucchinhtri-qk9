@@ -1,0 +1,33 @@
+:root {
+    /* Màu chủ đạo */
+    --color-red: #ca0b0d;
+    --color-red-dark: #9f0709;
+    --color-red-light: #e63739;
+
+    --color-gold: #ffc000;
+    --color-gold-dark: #dca600;
+    --color-gold-light: #ffda66;
+
+    --color-ivory: #feefe5;
+    --color-white: #ffffff;
+
+    /* Màu chữ */
+    --color-text: #2b2020;
+    --color-text-light: #6c5959;
+
+    /* Kích thước */
+    --container-width: 1280px;
+    --container-padding: 24px;
+
+    /* Bo góc */
+    --radius-small: 10px;
+    --radius-medium: 18px;
+    --radius-large: 28px;
+
+    /* Đổ bóng */
+    --shadow-small: 0 6px 18px rgba(71, 12, 12, 0.1);
+    --shadow-medium: 0 14px 40px rgba(71, 12, 12, 0.16);
+
+    /* Chuyển động */
+    --transition: 250ms ease;
+}
