@@ -3467,6 +3467,7 @@ BAN CHỦ NHIỆM
     font-weight: 800;
     line-height: 1;
     text-transform: uppercase;
+    -webkit-text-stroke:1px #ffffff;
 }
 
 .history-slide__title {
@@ -3476,6 +3477,7 @@ BAN CHỦ NHIỆM
     font-size: clamp(21px, 2vw, 31px);
     font-weight: 900;
     line-height: 1.25;
+    -webkit-text-stroke:1px #ffffff;
 }
 
 .history-slide__text {
