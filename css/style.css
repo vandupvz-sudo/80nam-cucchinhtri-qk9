@@ -5351,3 +5351,10 @@ body.flipbook-open {
     width: 100% !important;
     min-width: 0 !important;
 }
+/* Khung Chủ nhiệm */
+.leader-top .leader-card--main {
+    width: 400px !important;
+    max-width: calc(100% - 30px);
+    height: 112px;
+    flex: 0 0 400px;
+}
