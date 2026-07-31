@@ -151,7 +151,7 @@
             </p>
 
             <a class="hero__button" href="#gioi-thieu">
-                <span>BẮT ĐẦU</span>
+                <span>BÀI DỰ THI CỦA LỮ ĐOÀN 226</span>
 
                 <span class="hero__button-arrow" aria-hidden="true">
                     →
@@ -875,6 +875,48 @@
 <section class="gallery-section" id="thu-vien">
     <div class="container">
 
+<!-- SÁCH ĐIỆN TỬ -->
+
+        <div class="digital-book">
+
+            <div class="digital-book__intro">
+                <p class="digital-book__eyebrow">
+                    Ấn phẩm điện tử
+                </p>
+
+                <h3 class="digital-book__title">
+                    Bài dự thi tìm hiểu 80 năm
+                </h3>
+
+                <p class="digital-book__description">
+                    Nhấn vào bìa sách để đọc toàn bộ nội dung
+                    với hiệu ứng lật trang trực tuyến.
+                </p>
+            </div>
+
+            <button
+                class="book-cover"
+                id="open-flipbook"
+                type="button"
+                aria-label="Mở sách điện tử"
+            >
+                <span class="book-cover__spine"></span>
+
+                <span class="book-cover__pages"></span>
+
+                <img
+                    src="assets/images/book-cover.png"
+                    alt="Bìa sách bài dự thi tìm hiểu 80 năm"
+                >
+
+                <span class="book-cover__shine"></span>
+
+                <span class="book-cover__hint">
+                    Nhấn để mở sách
+                </span>
+            </button>
+
+        </div>
         <div class="section-heading gallery-heading">
             <p class="section-heading__eyebrow">
                 Dấu ấn qua hình ảnh
@@ -891,7 +933,6 @@
                 Quân khu 9.
             </p>
         </div>
-
         <div class="gallery-grid">
 
             <button
@@ -1752,5 +1793,44 @@
 <div id="history-debug"></div>
 
 <script src="js/script.js"></script>
+<div
+    class="flipbook-modal"
+    id="flipbook-modal"
+    aria-hidden="true"
+>
+    <div
+        class="flipbook-modal__backdrop"
+        id="flipbook-backdrop"
+    ></div>
+
+    <div
+        class="flipbook-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Sách điện tử"
+    >
+        <button
+            class="flipbook-modal__close"
+            id="close-flipbook"
+            type="button"
+            aria-label="Đóng sách"
+        >
+            ×
+        </button>
+
+        <div class="flipbook-modal__loading">
+            Đang tải sách điện tử...
+        </div>
+
+        <iframe
+            class="flipbook-modal__frame"
+            id="flipbook-frame"
+            title="Sách điện tử Heyzine"
+            data-src="https://heyzine.com/flip-book/ade8d732b9.html"
+            allowfullscreen
+            allow="fullscreen"
+        ></iframe>
+    </div>
+</div>
 </body>
 </html>

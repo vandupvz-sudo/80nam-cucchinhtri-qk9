@@ -4831,3 +4831,501 @@ html {
     object-fit: contain;
     border-radius: 50%;
 }
+/* =========================================================
+   SÁCH ĐIỆN TỬ 3D
+========================================================= */
+
+.digital-book {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    align-items: center;
+
+    max-width: 1100px;
+
+    gap: 70px;
+    margin: 0 auto 85px;
+    padding: 55px 65px;
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(255, 192, 0, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(202, 11, 13, 0.97),
+            rgba(143, 0, 4, 0.98)
+        );
+
+    border: 2px solid var(--color-gold);
+    border-radius: 32px;
+
+    box-shadow:
+        0 24px 60px rgba(82, 0, 0, 0.24);
+}
+
+.digital-book__intro {
+    color: #ffffff;
+}
+
+.digital-book__eyebrow {
+    margin: 0 0 10px;
+
+    color: var(--color-gold);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.digital-book__title {
+    margin: 0 0 20px;
+
+    color: #ffe6a3;
+    font-family: "UTM Impact", sans-serif;
+    font-size: clamp(35px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.08;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 4px 0 rgba(88, 0, 0, 0.6),
+        0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.digital-book__description {
+    max-width: 560px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+/* Bìa sách */
+
+.book-cover {
+    position: relative;
+
+    display: block;
+
+    width: min(100%, 340px);
+    aspect-ratio: 1/1;
+
+    margin: 0 auto;
+    padding: 0;
+
+    overflow: visible;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+    perspective: 1400px;
+
+    transform:
+        rotateY(-12deg)
+        rotateX(2deg);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 600ms ease;
+}
+
+.book-cover img {
+    position: relative;
+    z-index: 3;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #b9080d;
+
+    border-radius: 8px 16px 16px 8px;
+
+    box-shadow:
+        18px 24px 42px rgba(40, 0, 0, 0.36);
+
+    transform: translateZ(16px);
+}
+
+/* Gáy sách */
+
+.book-cover__spine {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(55, 0, 0, 0.55),
+            rgba(255, 255, 255, 0.14),
+            rgba(55, 0, 0, 0.35)
+        );
+
+    border-radius: 6px 0 0 6px;
+
+    transform:
+        translateX(-11px)
+        rotateY(-72deg);
+
+    transform-origin: right center;
+}
+
+/* Trang sách nhìn từ cạnh */
+
+.book-cover__pages {
+    position: absolute;
+    z-index: 1;
+    top: 9px;
+    right: -14px;
+    bottom: 9px;
+
+    width: 25px;
+
+    background:
+        repeating-linear-gradient(
+            180deg,
+            #fffdf6 0 2px,
+            #eadfcf 2px 3px
+        );
+
+    border-radius: 0 7px 7px 0;
+
+    box-shadow:
+        8px 12px 22px rgba(31, 0, 0, 0.22);
+
+    transform:
+        translateZ(-2px)
+        rotateY(72deg);
+
+    transform-origin: left center;
+}
+
+/* Vệt sáng trên bìa */
+
+.book-cover__shine {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+
+    overflow: hidden;
+
+    border-radius: 6px 14px 14px 6px;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.26) 42%,
+            transparent 62%
+        );
+
+    opacity: 0.45;
+
+    transform:
+        translateX(-75%)
+        translateZ(24px);
+
+    transition:
+        transform 750ms ease,
+        opacity 500ms ease;
+
+    pointer-events: none;
+}
+
+.book-cover__hint {
+    position: absolute;
+    z-index: 8;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    padding: 12px 15px;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+
+    background: rgba(83, 0, 0, 0.78);
+
+    border: 1px solid rgba(255, 192, 0, 0.85);
+    border-radius: 999px;
+
+    backdrop-filter: blur(8px);
+
+    transform: translateZ(30px);
+
+    transition:
+        background-color 300ms ease,
+        transform 300ms ease;
+}
+
+/* Hover */
+
+.book-cover:hover {
+    filter: brightness(1.04);
+
+    transform:
+        rotateY(-5deg)
+        rotateX(0)
+        translateY(-12px)
+        scale(1.035);
+}
+
+.book-cover:hover .book-cover__shine {
+    opacity: 0.8;
+
+    transform:
+        translateX(70%)
+        translateZ(24px);
+}
+
+.book-cover:hover .book-cover__hint {
+    background: rgba(202, 11, 13, 0.92);
+
+    transform:
+        translateY(-4px)
+        translateZ(30px);
+}
+
+.book-cover:focus-visible {
+    outline: 5px solid rgba(255, 192, 0, 0.38);
+    outline-offset: 10px;
+}
+
+/* =========================================================
+   POPUP FLIPBOOK
+========================================================= */
+
+.flipbook-modal {
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+        opacity 350ms ease,
+        visibility 350ms ease;
+}
+
+.flipbook-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.flipbook-modal__backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(18, 0, 0, 0.9);
+
+    backdrop-filter: blur(10px);
+}
+
+.flipbook-modal__dialog {
+    position: relative;
+    z-index: 2;
+
+    width: min(1500px, 96vw);
+    height: min(900px, 92vh);
+
+    overflow: hidden;
+
+    background: #160000;
+
+    border: 3px solid var(--color-gold);
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.55);
+
+    transform:
+        scale(0.94)
+        translateY(20px);
+
+    transition:
+        transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flipbook-modal.is-open .flipbook-modal__dialog {
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.flipbook-modal__frame {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background: #160000;
+    border: 0;
+}
+
+.flipbook-modal__loading {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.flipbook-modal__close {
+    position: absolute;
+    z-index: 5;
+    top: 14px;
+    right: 14px;
+
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1;
+
+    background: rgba(202, 11, 13, 0.92);
+
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 250ms ease,
+        background-color 250ms ease;
+}
+
+.flipbook-modal__close:hover {
+    background: #e00d12;
+
+    transform: rotate(90deg);
+}
+
+body.flipbook-open {
+    overflow: hidden;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .digital-book {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+        padding: 45px 35px;
+
+        text-align: center;
+    }
+
+    .digital-book__description {
+        margin-inline: auto;
+    }
+
+    .book-cover {
+        width: min(80%, 330px);
+    }
+}
+
+/* Điện thoại */
+
+@media (max-width: 600px) {
+    .digital-book {
+        margin-bottom: 55px;
+        padding: 34px 20px;
+
+        border-radius: 22px;
+    }
+
+    .digital-book__title {
+        font-size: 34px;
+    }
+
+    .digital-book__description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .book-cover {
+        width: min(82%, 280px);
+
+        transform:
+            rotateY(-7deg)
+            rotateX(1deg);
+    }
+
+    .flipbook-modal {
+        padding: 8px;
+    }
+
+    .flipbook-modal__dialog {
+        width: 100%;
+        height: 94vh;
+
+        border-radius: 13px;
+    }
+
+    .flipbook-modal__close {
+        top: 9px;
+        right: 9px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 29px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-cover,
+    .book-cover__shine,
+    .book-cover__hint,
+    .flipbook-modal,
+    .flipbook-modal__dialog {
+        transition: none;
+    }
+}

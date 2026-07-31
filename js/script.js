@@ -691,4 +691,83 @@ if (authorCards.length > 0) {
     updateAuthorsCarousel();
     startAuthorsAutoPlay();
 }
+/* =========================================================
+   POPUP SÁCH ĐIỆN TỬ HEYZINE
+========================================================= */
+
+const openFlipbookButton =
+    document.getElementById("open-flipbook");
+
+const closeFlipbookButton =
+    document.getElementById("close-flipbook");
+
+const flipbookModal =
+    document.getElementById("flipbook-modal");
+
+const flipbookBackdrop =
+    document.getElementById("flipbook-backdrop");
+
+const flipbookFrame =
+    document.getElementById("flipbook-frame");
+
+const openFlipbook = () => {
+    if (!flipbookModal || !flipbookFrame) {
+        return;
+    }
+
+    if (!flipbookFrame.src) {
+        const flipbookUrl =
+            flipbookFrame.dataset.src;
+
+        if (flipbookUrl) {
+            flipbookFrame.src = flipbookUrl;
+        }
+    }
+
+    flipbookModal.classList.add("is-open");
+    flipbookModal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("flipbook-open");
+
+    window.setTimeout(() => {
+        closeFlipbookButton?.focus();
+    }, 100);
+};
+
+const closeFlipbook = () => {
+    if (!flipbookModal) {
+        return;
+    }
+
+    flipbookModal.classList.remove("is-open");
+    flipbookModal.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("flipbook-open");
+
+    openFlipbookButton?.focus();
+};
+
+openFlipbookButton?.addEventListener(
+    "click",
+    openFlipbook
+);
+
+closeFlipbookButton?.addEventListener(
+    "click",
+    closeFlipbook
+);
+
+flipbookBackdrop?.addEventListener(
+    "click",
+    closeFlipbook
+);
+
+document.addEventListener("keydown", (event) => {
+    if (
+        event.key === "Escape" &&
+        flipbookModal?.classList.contains("is-open")
+    ) {
+        closeFlipbook();
+    }
+});
     });
