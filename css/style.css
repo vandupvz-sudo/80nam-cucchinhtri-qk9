@@ -2919,9 +2919,11 @@ BAN CHỦ NHIỆM
 .leader-grid {
     display: grid;
 
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, 1fr);
 
-    gap: 24px;
+    gap: 22px;
+
+    align-items:start;
 
     width: 100%;
     max-width: 1500px;
@@ -2939,7 +2941,7 @@ BAN CHỦ NHIỆM
 
     width: 100%;
     min-width: 0;
-    height: 105px;
+    height: 100px;
 
     padding: 10px 12px;
 
@@ -2982,7 +2984,7 @@ BAN CHỦ NHIỆM
 
 .leader-name{
 
-    font-size:18px;
+    font-size:16px;
 
     font-weight:800;
 
@@ -2996,7 +2998,7 @@ BAN CHỦ NHIỆM
 
 .leader-position{
 
-    font-size:14px;
+    font-size:12px;
 
     line-height:1.35;
 
@@ -3035,7 +3037,7 @@ BAN CHỦ NHIỆM
     align-items: center;
     justify-content: center;
 
-    width: 100%;
+    width: 80%;
     height: 112px;
     min-width: 0;
 
@@ -3111,13 +3113,13 @@ BAN CHỦ NHIỆM
 }
 .leader-connect line {
     stroke: #f2b300;
-    stroke-width: 4;
+    stroke-width: 5;
     stroke-linecap: round;
 
     vector-effect: non-scaling-stroke;
 }
 
-/* Hàng 4 ô phía dưới */
+/* Hàng 5 ô phía dưới */
 
 .leader-grid {
     position: relative;
@@ -5328,4 +5330,24 @@ body.flipbook-open {
     .flipbook-modal__dialog {
         transition: none;
     }
+}
+/* ÉP 5 PHÓ CHỦ NHIỆM CÙNG MỘT HÀNG */
+
+.leader-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+
+    width: 100% !important;
+    max-width: 1700px !important;
+
+    gap: 12px !important;
+    margin: 0 auto !important;
+    padding: 0 12px !important;
+
+    box-sizing: border-box;
+}
+
+.leader-card {
+    width: 100% !important;
+    min-width: 0 !important;
 }
