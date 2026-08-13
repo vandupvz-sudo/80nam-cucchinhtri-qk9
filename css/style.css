@@ -2846,204 +2846,234 @@ section {
         animation: none;
     }
 }
-/*=========================
-BAN CHỦ NHIỆM
-==========================*/
+/* =========================================================
+   BAN CHỦ NHIỆM CỤC CHÍNH TRỊ
+========================================================= */
 
-.leadership-chart{
+.leadership-section {
+    position: relative;
+    overflow: hidden;
 
-    margin-top:90px;
+    padding: 90px 25px 110px;
 
-    margin-bottom:90px;
-
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 192, 0, 0.07),
+            transparent 35%
+        ),
+        #ffffff;
 }
 
-.section-title{
 
-    text-align:center;
+/* =========================================================
+   TIÊU ĐỀ
+========================================================= */
 
-    font-family:"UTM Impact",sans-serif;
+.leadership-heading {
+    margin-bottom: 60px;
+    text-align: center;
+}
 
-    font-size:46px;
+.leadership-heading h2 {
+    margin: 0;
 
-    color:#ffb400;
+    color: #ffb400;
 
-    text-transform:uppercase;
+    font-family: "UTM Impact", sans-serif;
 
-    -webkit-text-stroke:1px #fff;
+    font-size: clamp(38px, 4.2vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 1px #ffffff;
 
     text-shadow:
-        0 3px 0 #d07b00,
-        0 10px 20px rgba(0,0,0,.15);
-
+        0 3px 0 #c97900,
+        0 8px 18px rgba(90, 30, 0, 0.16);
 }
 
-.section-divider{
 
-    display:flex;
+/* 3 ngôi sao */
 
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    color:#f2b300;
-
-    margin:18px 0 45px;
-
-    font-size:22px;
-
-}
-
-.section-divider span{
-
-    width:110px;
-
-    height:2px;
-
-    background:#f2b300;
-
-}
-
-.leader-top{
-
-    display:flex;
-
-    justify-content:center;
-
-    margin-bottom:70px;
-
-}
-
-.leader-grid {
-    display: grid;
-
-    grid-template-columns: repeat(5, 1fr);
+.leadership-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     gap: 22px;
 
-    align-items:start;
+    margin-top: 35px;
+
+    color: #f2ad00;
+}
+
+.leadership-stars span {
+    width: 150px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #f2ad00
+        );
+}
+
+.leadership-stars span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #f2ad00,
+            transparent
+        );
+}
+
+.leadership-stars b {
+    font-size: 25px;
+    letter-spacing: 7px;
+}
+
+
+/* =========================================================
+   SƠ ĐỒ
+========================================================= */
+
+.leadership-chart {
+    position: relative;
 
     width: 100%;
-    max-width: 1500px;
+    max-width: 1700px;
 
     margin: 0 auto;
 
-    padding: 0 24px;
-
-    position: relative;
-
     box-sizing: border-box;
 }
-.leader-card {
+
+
+/* =========================================================
+   PROFILE CHUNG
+========================================================= */
+
+.leader-profile {
     position: relative;
-
-    width: 100%;
-    min-width: 0;
-    height: 100px;
-
-    padding: 10px 12px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    min-width: 0;
+
+    transition:
+        transform 450ms ease;
+}
+
+
+/* =========================================================
+   CHỦ NHIỆM
+========================================================= */
+
+.leader-top {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
     justify-content: center;
+}
 
-    background: linear-gradient(
-        180deg,
-        #d50b0b,
-        #b30000
-    );
+.leader-profile--main {
+    width: 430px;
+    max-width: 100%;
+}
 
-    border: 3px solid #ffc000;
-    border-radius: 16px;
 
-    color: #ffffff;
-    text-align: center;
+/* =========================================================
+   ẢNH CHÂN DUNG
+========================================================= */
+
+.leader-photo {
+    position: relative;
+    z-index: 6;
+
+    width: 150px;
+    height: 150px;
+
+    margin-bottom: -30px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 5px solid #ffc000;
+    border-radius: 50%;
 
     box-sizing: border-box;
 
     box-shadow:
-        0 8px 18px rgba(0, 0, 0, 0.18);
+        0 14px 30px rgba(91, 0, 0, 0.22);
+
+    transition:
+        transform 450ms ease,
+        box-shadow 450ms ease;
 }
 
-.leader-card--main {
-    width: min(420px, 90%);
-    height: 105px;
+
+/* Ảnh Chủ nhiệm lớn hơn */
+
+.leader-photo--main {
+    width: 190px;
+    height: 190px;
+
+    margin-bottom: -34px;
+
+    border-width: 6px;
 }
 
-.leader-rank{
-    font-size:15px;
-    font-weight:700;
 
-    margin-bottom:8px;
+/* Ảnh bên trong */
 
-    line-height:1.3;
-}
+.leader-photo img {
+    display: block;
 
-.leader-name{
-
-    font-size:16px;
-
-    font-weight:800;
-
-    line-height:1.25;
-
-    margin-bottom:8px;
-
-    white-space:nowrap;
-
-}
-
-.leader-position{
-
-    font-size:12px;
-
-    line-height:1.35;
-
-    white-space:nowrap;
-
-}
-/* ==============================
-   BAN CHỦ NHIỆM
-============================== */
-
-.leadership-chart {
-    position: relative;
     width: 100%;
-    max-width: 1600px;
-    margin: 90px auto;
-    padding: 0 24px;
-    box-sizing: border-box;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* chỉnh vị trí khuôn mặt tại đây */
+    object-position: center 15%;
+
+    transition:
+        transform 600ms ease;
 }
 
-.leader-top {
-    position: relative;
-    z-index: 3;
 
-    display: flex;
-    justify-content: center;
-
-    margin-bottom: 0;
-}
+/* =========================================================
+   Ô THÔNG TIN
+========================================================= */
 
 .leader-card {
     position: relative;
-    z-index: 3;
+    z-index: 4;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: 80%;
-    height: 112px;
-    min-width: 0;
+    width: 100%;
+    height: 125px;
 
-    padding: 14px 12px;
+    padding:
+        38px
+        10px
+        12px;
 
     color: #ffffff;
+
     text-align: center;
 
     background:
@@ -3059,84 +3089,377 @@ BAN CHỦ NHIỆM
     box-sizing: border-box;
 
     box-shadow:
-        0 12px 24px rgba(84, 0, 0, 0.18);
+        0 12px 28px rgba(84, 0, 0, 0.18);
+
+    transition:
+        transform 400ms ease,
+        box-shadow 400ms ease,
+        filter 400ms ease;
 }
 
-.leader-card--main{
 
-    width: 400px;
+/* Ô Chủ nhiệm */
 
-    height: 100px;
+.leader-card--main {
+    width: 430px;
+    height: 130px;
 
+    padding-top: 43px;
 }
 
-/* Khoảng cách chữ */
+
+/* =========================================================
+   CẤP BẬC
+========================================================= */
 
 .leader-rank {
-    margin: 0 0 10px;
+    margin: 0 0 6px;
 
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
+
     line-height: 1;
 
     white-space: nowrap;
 }
+
+
+/* =========================================================
+   HỌ TÊN
+========================================================= */
 
 .leader-name {
-    margin: 0 0 10px;
+    margin: 0 0 7px;
 
-    font-size: clamp(19px, 1.55vw, 27px);
+    font-size: clamp(17px, 1.35vw, 24px);
     font-weight: 800;
-    line-height: 1;
+
+    line-height: 1.05;
 
     white-space: nowrap;
 }
+
+
+/* =========================================================
+   CHỨC VỤ
+========================================================= */
 
 .leader-position {
     margin: 0;
 
-    font-size: clamp(14px, 1.1vw, 18px);
-    font-weight: 650;
-    line-height: 1;
+    font-size: clamp(13px, 0.95vw, 17px);
+    font-weight: 700;
+
+    line-height: 1.1;
 
     white-space: nowrap;
 }
 
-/* Đường nối SVG */
 
-.leader-connect{
-    width: calc(100% - 140px);
+/* =========================================================
+   ĐƯỜNG NỐI
+========================================================= */
 
-    height: 95px;
+.leader-connect {
+    position: relative;
+    z-index: 1;
 
-    margin: -4px auto -8px;
+    display: block;
+
+    width: calc(100% - 80px);
+    height: 130px;
+
+    margin:
+        -3px auto
+        -5px;
+
+    overflow: visible;
 }
+
+
 .leader-connect line {
-    stroke: #f2b300;
-    stroke-width: 5;
+    stroke: #f2ad00;
+
+    stroke-width: 4;
+
     stroke-linecap: round;
 
-    vector-effect: non-scaling-stroke;
+    vector-effect:
+        non-scaling-stroke;
+
+    /* hiệu ứng đường chạy */
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+
+    animation:
+        leaderLineDraw
+        1.7s ease
+        forwards;
 }
 
-/* Hàng 5 ô phía dưới */
+
+.leader-connect line:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.leader-connect line:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.leader-connect line:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.leader-connect line:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+
+@keyframes leaderLineDraw {
+
+    to {
+        stroke-dashoffset: 0;
+    }
+
+}
+
+
+/* =========================================================
+   5 PHÓ CHỦ NHIỆM
+========================================================= */
 
 .leader-grid {
     position: relative;
-    z-index: 3;
+    z-index: 4;
 
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    gap: 24px;
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 18px;
 
     width: 100%;
-    max-width: 1500px;
 
     margin: 0 auto;
-    padding: 0 12px;
 
     box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HIỆU ỨNG HOVER
+========================================================= */
+
+.leader-profile:hover {
+    transform: translateY(-7px);
+}
+
+
+.leader-profile:hover .leader-photo {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 20px 40px rgba(85, 0, 0, 0.28);
+}
+
+
+.leader-profile:hover .leader-photo img {
+    transform: scale(1.07);
+}
+
+
+.leader-profile:hover .leader-card {
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 20px 38px rgba(84, 0, 0, 0.24);
+}
+
+
+/* =========================================================
+   HIỆU ỨNG XUẤT HIỆN
+========================================================= */
+
+.leader-profile {
+    animation:
+        leaderAppear
+        800ms
+        cubic-bezier(.22, 1, .36, 1)
+        both;
+}
+
+
+.leader-profile--main {
+    animation-delay: 0.1s;
+}
+
+
+.leader-grid .leader-profile:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.leader-grid .leader-profile:nth-child(2) {
+    animation-delay: 0.55s;
+}
+
+.leader-grid .leader-profile:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.leader-grid .leader-profile:nth-child(4) {
+    animation-delay: 0.85s;
+}
+
+.leader-grid .leader-profile:nth-child(5) {
+    animation-delay: 1s;
+}
+
+
+@keyframes leaderAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .leadership-section {
+        padding:
+            75px
+            20px
+            90px;
+    }
+
+    /* Ẩn đường nối khi xuống 2 cột */
+    .leader-connect {
+        display: none;
+    }
+
+    .leader-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 45px 20px;
+
+        margin-top: 60px;
+    }
+
+    .leader-profile--main {
+        width: 420px;
+    }
+
+}
+
+
+/* =========================================================
+   ĐIỆN THOẠI
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .leadership-section {
+        padding:
+            65px
+            14px
+            80px;
+    }
+
+
+    .leadership-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .leadership-heading h2 {
+        font-size: 31px;
+    }
+
+
+    .leadership-stars {
+        gap: 10px;
+
+        margin-top: 25px;
+    }
+
+
+    .leadership-stars span {
+        width: 65px;
+    }
+
+
+    .leadership-stars b {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+
+    /* Chủ nhiệm */
+
+    .leader-profile--main {
+        width: 100%;
+    }
+
+
+    .leader-photo--main {
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .leader-card--main {
+        width: 100%;
+        max-width: 390px;
+    }
+
+
+    /* 5 người xếp dọc */
+
+    .leader-grid {
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+
+        margin-top: 55px;
+    }
+
+
+    .leader-photo {
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .leader-card {
+        width: 100%;
+        max-width: 390px;
+
+        margin: 0 auto;
+    }
+
+
+    .leader-name {
+        font-size: 21px;
+    }
+
+
+    .leader-position {
+        font-size: 15px;
+    }
+
 }
 /*==========================
   PHÒNG BAN
@@ -5356,5 +5679,5 @@ body.flipbook-open {
     width: 400px !important;
     max-width: calc(100% - 30px);
     height: 112px;
-    flex: 0 0 400px;
+    flex: 0 0 150px;
 }
