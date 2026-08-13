@@ -770,4 +770,149 @@ document.addEventListener("keydown", (event) => {
         closeFlipbook();
     }
 });
+const backgroundMusic =
+    document.getElementById("background-music");
+
+const musicStatus =
+    document.getElementById("music-status");
+
+if (backgroundMusic && musicStatus) {
+
+    backgroundMusic.volume = 0.35;
+
+
+    /* ==========================
+       CẬP NHẬT TRẠNG THÁI
+    ========================== */
+
+    const updateMusicStatus = () => {
+
+        if (!backgroundMusic.paused) {
+
+            musicStatus.classList.add("is-playing");
+
+            musicStatus.textContent = "♫";
+
+            musicStatus.setAttribute(
+                "aria-label",
+                "Tắt nhạc nền"
+            );
+
+        } else {
+
+            musicStatus.classList.remove("is-playing");
+
+            musicStatus.textContent = "♪";
+
+            musicStatus.setAttribute(
+                "aria-label",
+                "Bật nhạc nền"
+            );
+
+        }
+
+    };
+
+
+    /* ==========================
+       BẮT ĐẦU PHÁT NHẠC
+    ========================== */
+
+    const startMusic = async () => {
+
+        if (!backgroundMusic.paused) {
+            return;
+        }
+
+        try {
+
+            await backgroundMusic.play();
+
+            updateMusicStatus();
+
+            document.removeEventListener(
+                "touchstart",
+                startMusic
+            );
+
+            document.removeEventListener(
+                "click",
+                startMusic
+            );
+
+        } catch (error) {
+
+            console.log(
+                "Trình duyệt chưa cho phép phát nhạc."
+            );
+
+        }
+
+    };
+
+
+    /* ==========================
+       CHẠM / LƯỚT ĐIỆN THOẠI
+    ========================== */
+
+    document.addEventListener(
+        "touchstart",
+        startMusic,
+        { passive: true }
+    );
+
+
+    /* Click trên máy tính */
+
+    document.addEventListener(
+        "click",
+        startMusic
+    );
+
+
+    /* ==========================
+       BẤM NÚT ĐỂ BẬT / TẮT
+    ========================== */
+
+    musicStatus.addEventListener(
+        "click",
+        async (event) => {
+
+            event.stopPropagation();
+
+            if (backgroundMusic.paused) {
+
+                try {
+
+                    await backgroundMusic.play();
+
+                } catch (error) {}
+
+            } else {
+
+                backgroundMusic.pause();
+
+            }
+
+            updateMusicStatus();
+
+        }
+    );
+
+
+    /* Tự cập nhật */
+
+    backgroundMusic.addEventListener(
+        "play",
+        updateMusicStatus
+    );
+
+    backgroundMusic.addEventListener(
+        "pause",
+        updateMusicStatus
+    );
+
+    updateMusicStatus();
+
+}
     });

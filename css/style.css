@@ -5681,3 +5681,53 @@ body.flipbook-open {
     height: 112px;
     flex: 0 0 150px;
 }
+.music-status {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    color: #fff;
+    font-size: 24px;
+
+    background: #b90005;
+
+    border: 2px solid #ffc000;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.25);
+}
+
+/* Nhạc đang chạy */
+
+.music-status.is-playing {
+    animation: musicPulse 1.3s infinite;
+}
+
+@keyframes musicPulse {
+
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 0 0 rgba(255,192,0,.5);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow:
+            0 0 0 10px rgba(255,192,0,0);
+    }
+
+}
